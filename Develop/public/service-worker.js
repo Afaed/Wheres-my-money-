@@ -5,6 +5,7 @@ const FILES_TO_CACHE = [
     "/index.js",
     "/icons/icon-192x192.png",
     "/icons/icon-512x512.png",
+    "/manifest.json"
   ];
 
   const CACHE_NAME = "static-cache-v2";
@@ -54,7 +55,7 @@ let e = Event
       )
   })
 
-  e.respondWith(
+  /* e.respondWith(
       fetch(e.request).catch(function() {
           return caches.match(e.request).then(function (response) {
               if (response) {
@@ -65,4 +66,4 @@ let e = Event
               }
           })
       })
-  )
+  )*/

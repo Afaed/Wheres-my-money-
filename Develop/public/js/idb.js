@@ -11,14 +11,17 @@ request.onupgradeneeded = function(event) {
 }
 
 request.onsuccess = function(event) {
+    // when db is successfully created with its object store (from onupgradedneeded event above) or simply established a connection, save reference to db in global variable
+
     db = event.target.result;
-    
+    //check if app is online and to check the database
     if (navigator.onLine) {
         checkDatabase();
     }
 }
 
 request.onerror = function(event) {
+    //error log
     console.log("Error: " + event.target.errorCode)
 }
 
