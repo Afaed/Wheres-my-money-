@@ -1,11 +1,14 @@
 const FILES_TO_CACHE = [
-    "/",
-    "/index.html",
-    "/styles.css",
-    "/index.js",
-    "/icons/icon-192x192.png",
-    "/icons/icon-512x512.png",
-    "/manifest.json"
+    '/',
+    './index.html',
+     './favicon.ico',
+   './manifest.json',
+     './assets/css/style.css',
+     './assets/js/loadImages.js',
+     './assets/images/icons/icon-72x72.png',
+    './assets/images/icons/icon-96x96.png',
+    './assets/images/icons/icon-128x128.png',
+     './assets/images/icons/icon-144x144.png',
   ];
 
   const CACHE_NAME = "static-cache-v2";
