@@ -18,7 +18,7 @@ const FILES_TO_CACHE = [
   const DATA_CACHE_NAME =  "data-cache-v1"
 
   //install
-let e = Event
+
   self.addEventListener("install", function (e) {
       e.waitUntil(
           caches.open(CACHE_NAME).then(cache => {
@@ -59,17 +59,16 @@ let e = Event
               }
           })
       )
+      e.respondWith(
+        fetch(e.request).catch(function() {
+            return caches.match(e.request).then(function (response) {
+                if (response) {
+                    return response;
+                } else if (e.request.headers.get("accept").includes("text/html"))
+                {
+                    return caches.match("/")
+                }
+            })
+        })
+    )
   })
-
-  /* e.respondWith(
-      fetch(e.request).catch(function() {
-          return caches.match(e.request).then(function (response) {
-              if (response) {
-                  return response;
-              } else if (e.request.headers.get("accept").includes("text/html"))
-              {
-                  return caches.match("/")
-              }
-          })
-      })
-  )*/
